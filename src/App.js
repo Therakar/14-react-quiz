@@ -1,6 +1,8 @@
 import { useEffect, useReducer } from "react";
 import Header from "./Header";
 import Main from "./Main";
+import Loader from "./Loader";
+import Error from "./Error";
 
 const initialState = {
   questions: [],
@@ -21,7 +23,8 @@ function reducer(state, action) {
 
 export default function App() {
   //useReducer() hook
-  const [state, dispatch] = useReducer(reducer, initialState);
+  //here I'm distructuring the state
+  const [{ question, status }, dispatch] = useReducer(reducer, initialState);
 
   //fetch data
   useEffect(function () {
@@ -35,8 +38,8 @@ export default function App() {
     <div className="app">
       <Header />
       <Main>
-        <p>1/15</p>
-        <p>Question?</p>
+        {status === "loading" && <Loader />}
+        {status === "error" && <Error />}
       </Main>
     </div>
   );
