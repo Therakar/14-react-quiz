@@ -26,7 +26,7 @@ function DateCounter() {
   const { count, step } = state;
 
   // This mutates the date object.
-  const date = new Date("june 21 2027");
+  const date = new Date("february 08 2024");
   date.setDate(date.getDate() + count);
 
   const dec = function () {
