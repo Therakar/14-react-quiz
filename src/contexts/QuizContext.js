@@ -97,8 +97,8 @@ function QuizProvider({ children }) {
 
   return (
     <QuizContext.Provider
-      value={
-        (questions,
+      value={{
+        questions,
         status,
         index,
         answer,
@@ -107,8 +107,8 @@ function QuizProvider({ children }) {
         remainingSeconds,
         numQuestions,
         maxPossiblePoints,
-        dispatch)
-      }
+        dispatch,
+      }}
     >
       {children}
     </QuizContext.Provider>
